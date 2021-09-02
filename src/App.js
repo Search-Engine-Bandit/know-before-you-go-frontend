@@ -1,10 +1,11 @@
 
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react';
 import './App.css';
+import EventForm from './EventForm';
 
 class App extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       events: [],
@@ -12,17 +13,14 @@ class App extends React.Component {
   };
 
 
-  getEvent = async () => {
-    let events = await axios.get('http://localhost:3001/events');
-    this.setState({
-      events: events.data,
-    })
-    console.log(events);
-  }
 
-  render(){
+
+  render() {
     return (
-      <button onClick={this.getEvent}></button>
+      <>
+        <button onClick={this.getEvent}></button>
+        <EventForm />
+      </>
     );
   }
 }
