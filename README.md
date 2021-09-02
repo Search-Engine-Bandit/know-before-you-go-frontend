@@ -1,4 +1,4 @@
-# know-before-you-go-backend
+# know-before-you-go-frontend
 
 ## [Our Team Collaboration Plan](https://docs.google.com/document/d/1V7n9cizHly3ELPtDL3QGJtLV4XdCqgeUgpqlbctfsoY/edit)
 
