@@ -3,6 +3,7 @@ import axios from 'axios'
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import Events from './Events';
 
 class EventForm extends React.Component {
   constructor (props) {
@@ -67,7 +68,7 @@ class EventForm extends React.Component {
     this.setState({
       events: events.data
     })
-    console.log(events);
+    console.log(this.state.events);
   }
 
   render() {
@@ -110,9 +111,7 @@ class EventForm extends React.Component {
             <Button type="submit">
               Search Events
             </Button>
-
-
-
+            <Events events={this.state.events} />
           </Form>
         </Container>
       </>

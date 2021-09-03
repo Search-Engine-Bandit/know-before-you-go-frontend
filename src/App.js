@@ -3,6 +3,7 @@
 import React from 'react';
 import './App.css';
 import EventForm from './EventForm';
+// import Events from './Events';
 
 class App extends React.Component {
   constructor (props) {
