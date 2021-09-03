@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 
+
 class EventForm extends React.Component {
   constructor (props) {
     super(props);
@@ -63,7 +64,7 @@ class EventForm extends React.Component {
     this.getEvent();
   }
   getEvent = async () => {
-    let events = await axios.get(`http://localhost:3001/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
+    let events = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
     this.setState({
       events: events.data
     })
@@ -90,20 +91,15 @@ class EventForm extends React.Component {
               <Form.Control type="text" />
             </Form.Group>
 
-
-
             <Form.Group controlId="state" onChange={this.handleState}>
               <Form.Label>state</Form.Label>
               <Form.Control type="text" />
             </Form.Group>
 
-
-
             <Form.Group id="formGridCheckbox" onChange={this.handleActivity}>
               <Form.Check type="checkbox" label="Music" value="music" />
               <Form.Check type="checkbox" label="Sports" value="sports" />
               <Form.Check type="checkbox" label="Art/Theater" value="arts-theater" />
-
 
             </Form.Group>
 

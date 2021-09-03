@@ -1,8 +1,11 @@
-
-// import axios from 'axios';
 import React from 'react';
 import './App.css';
-import EventForm from './EventForm';
+import { withAuth0 } from '@auth0/auth0-react';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
+
+import BrowserRouter from './BrowserRouter.js';
 
 class App extends React.Component {
   constructor (props) {
@@ -12,17 +15,15 @@ class App extends React.Component {
     }
   };
 
-
-
-
   render() {
     return (
       <>
-        <button onClick={this.getEvent}></button>
-        <EventForm />
+        <Router>
+          <BrowserRouter/>
+        </Router>
       </>
     );
   }
 }
 
-export default App;
+export default withAuth0(App);
