@@ -1,18 +1,50 @@
-  
+
+import axios from 'axios';
 import React from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 
-class Profile extends React.Component {
-  render() {
 
+
+class Profile extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      event: {}
+
+    }
+  }
+
+
+  componentDidMount = async () => {
+    const savedItems = await axios.get('http://localhost:3001/dbevents');
+    this.setState({
+      event: savedItems.data
+    })
+    console.log(this.state.event)
+  }
+
+  handleDeleteEvent = async (id) => {
+    try {
+      await axios.event(`http://localhost:3001/dbevents/${id}`);
+      let remainingEvents = this.state.events.filter(event => event._id !== id)
+      this.setState({
+        events: remainingEvents
+      })
+
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+
+  render() {
     return (
       <>
-        {this.props.auth0.user.name}
-        <h2>{this.props.auth0.user.email}</h2>
-        <img src={this.props.auth0.user.picture} alt="Profile pic" />
       </>
     )
   }
 }
 
 export default withAuth0(Profile);
+
+
