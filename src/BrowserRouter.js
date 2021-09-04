@@ -23,15 +23,15 @@ class BrowserRouter extends React.Component {
 
       <>
         <Router>
-            <Header />
-            <Switch>
-              <Route exact path="/">
-                {this.props.auth0.isAuthenticated ? <EventForm/> : ' I am here'}
-              </Route>
-              <Route exact path="/profile">
-                {this.props.auth0.isAuthenticated ? <Profile /> : ' I am here'}
-              </Route>
-            </Switch>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              {this.props.auth0.isAuthenticated ? <EventForm /> : ' I am here'}
+            </Route>
+            <Route exact path="/profile">
+              {this.props.auth0.isAuthenticated ? <Profile /> : ' I am here'}
+            </Route>
+          </Switch>
         </Router>
       </>
     )

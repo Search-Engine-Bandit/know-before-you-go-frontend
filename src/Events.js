@@ -6,7 +6,7 @@ class Events extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedEvent: {}
+      selectedEvent: {},
 
     }
   }
@@ -16,6 +16,7 @@ class Events extends React.Component {
     })
     this.props.handleCreateEvent(selectedEvent)
   }
+
 
   render() {
     console.log(this.state.selectedEvent)
@@ -43,7 +44,7 @@ class Events extends React.Component {
               )}
           </CardColumns>
         </Container>
-        {/* <Profile /> */}
+
 
       </>
     )
