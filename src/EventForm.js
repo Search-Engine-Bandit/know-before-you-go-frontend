@@ -16,8 +16,8 @@ class EventForm extends React.Component {
       music: '',
       sports: '',
       theater: '',
-      activity: ''
-
+      activity: '',
+      event: {}
 
     }
   }
@@ -34,32 +34,16 @@ class EventForm extends React.Component {
     e.preventDefault()
     this.setState({ state: e.target.value })
   }
-  // handleMusic = (e) => {
-  //   e.preventDefault()
-  //   this.setState({ music: e.target.value })
-  //   console.log(this.state.music)
-  // }
-  // handleSports = (e) => {
-  //   e.preventDefault()
-  //   this.setState({ sports: e.target.value })
-  //   console.log(this.state.sports)
-  //}
+
   handleActivity = (e) => {
     e.preventDefault()
     this.setState({ activity: e.target.value })
     console.log(this.state.activity)
   }
 
-
-
   handlesubmit = (e) => {
     e.preventDefault();
-    // let city = e.target.city.value
-    // let startDate = e.target.startdate.value
-    // let endDate = e.target.enddate.value
-    // let state = e.target.state.value
-    // console.log(city, startDate, endDate, state)
-    // this.setState({ city, startDate, endDate, state })
+
 
     this.getEvent();
   }
@@ -69,6 +53,18 @@ class EventForm extends React.Component {
       events: events.data
     })
     console.log(this.state.events);
+  }
+  handleCreateEvent = async (eventInfo) => {
+    try {
+      let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
+      const newEvent = result.data;
+      this.setState({
+        event: [...this.state.event, newEvent],
+      })
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   render() {
@@ -111,9 +107,10 @@ class EventForm extends React.Component {
             <Button type="submit">
               Search Events
             </Button>
-            <Events events={this.state.events} />
+            <Events events={this.state.events} handleCreateEvent={this.handleCreateEvent} />
           </Form>
         </Container>
+
       </>
     )
   }
