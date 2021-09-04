@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import Events from './Events';
+import CovidInfo from './CovidInfo.js';
 
 
 class EventForm extends React.Component {
@@ -49,7 +50,7 @@ class EventForm extends React.Component {
     this.getEvent();
   }
   getEvent = async () => {
-    let events = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
+    let events = await axios.get(`http://localhost:3001/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
     this.setState({
       events: events.data
     })
@@ -103,6 +104,10 @@ class EventForm extends React.Component {
             <Button type="submit">
               Search Events
             </Button>
+
+                {/* /////////////TRYING TO BRING IN COVID DATA HERE: ///////////*/}
+            <CovidInfo/>
+
             <Events events={this.state.events} handleCreateEvent={this.handleCreateEvent} />
           </Form>
         </Container>
