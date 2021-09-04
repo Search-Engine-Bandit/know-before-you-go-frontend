@@ -10,28 +10,35 @@ import Header from './Header';
 
 
 
-import Login from './Login';
 import Profile from './Profile.js';
-import EventForm from './EventForm.js'
+import Landing from './Landing.js'
+// import EventForm from './EventForm.js'
+import Footer from './Footer.js'
+import Search from './Search';
 
 
 
 class BrowserRouter extends React.Component {
 
+
   render() {
     return (
-
       <>
         <Router>
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              {this.props.auth0.isAuthenticated ? <EventForm /> : ' I am here'}
-            </Route>
-            <Route exact path="/profile">
-              {this.props.auth0.isAuthenticated ? <Profile /> : ' I am here'}
-            </Route>
-          </Switch>
+
+            <Header />
+            <Switch>
+              <Route exact path="/">
+                {this.props.auth0.isAuthenticated ? <Landing /> : ''}
+              </Route>
+              <Route exact path="/profile">
+                {this.props.auth0.isAuthenticated ? <Profile /> : ''}
+              </Route>
+              <Route exact path="/search">
+              {this.props.auth0.isAuthenticated ? <Search /> : ''}
+              </Route>
+            </Switch>
+            {/* <Footer /> */}
         </Router>
       </>
     )
