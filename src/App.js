@@ -3,6 +3,8 @@
 import React from 'react';
 import './App.css';
 import EventForm from './EventForm';
+import Profile from './Profile';
+// import Events from './Events';
 
 class App extends React.Component {
   constructor (props) {
@@ -20,6 +22,9 @@ class App extends React.Component {
       <>
         <button onClick={this.getEvent}></button>
         <EventForm />
+        <Profile />
+
+
       </>
     );
   }
