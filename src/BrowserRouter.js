@@ -25,6 +25,7 @@ class BrowserRouter extends React.Component {
     return (
       <>
         <Router>
+
             <Header />
             <Switch>
               <Route exact path="/">
