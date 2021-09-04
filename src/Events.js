@@ -18,12 +18,12 @@ class Events extends React.Component {
   }
 
   render() {
-    console.log(this.state.selectedEvent)
+
     return (
       <>
         <Container>
           <CardColumns>
-            {this.props.events.length > 0 &&
+            {this.props.events &&
               this.props.events.map((event) =>
                 <Card key={event.id} style={{ width: '18rem' }} >
                   <Card.Img src={event.image} />
