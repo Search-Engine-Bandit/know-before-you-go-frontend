@@ -6,26 +6,10 @@
 
   David Waiganjo  
   Don Bandy  
-  Taylor White
+  Taylor White  
+  Michael Eclavea  
+  JP Jones  
 
 ## Project Idea
 
   Get background information on a prospective date and also ensuring your date goes well. Check on available events for the desired day, check on available restaurants, etc.
-
-Database Schema
-Person schema
- Name {string, required}
-Age{Number,not required}
-City{string, Required, City , might be associated to City_Event}
-Gender{string,Not Required}
-Email{string,Not Required}
-
-
-Event Schema
-Event name{string,not required}
-Event Date{number,Required}
-Event City{string,Required}
-
-Relationships
-One person can go to one or more events
-One Event can have one or more people
