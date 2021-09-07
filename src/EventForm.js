@@ -70,8 +70,9 @@ class EventForm extends React.Component {
       events: events.data
     })
     console.log(this.state.events);
+    this.props.handleEvents(events.data);
   }
-  
+
   handleCreateEvent = async (eventInfo) => {
     try {
       let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
@@ -79,11 +80,11 @@ class EventForm extends React.Component {
       this.setState({
         event: [...this.state.event, newEvent],
       })
-
     } catch (err) {
       console.log(err)
     }
   }
+  
 
   render() {
     return (
@@ -124,6 +125,7 @@ class EventForm extends React.Component {
             <CovidInfo covidData={this.state.covidData} />
 
             <Events events={this.state.events} handleCreateEvent={this.handleCreateEvent} />
+
           </Form>
         </Container>
 

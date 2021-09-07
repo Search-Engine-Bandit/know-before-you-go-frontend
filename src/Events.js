@@ -6,7 +6,7 @@ class Events extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedEvent: {}
+      selectedEvent: {},
 
     }
   }
@@ -17,13 +17,14 @@ class Events extends React.Component {
     this.props.handleCreateEvent(selectedEvent)
   }
 
+
   render() {
-    console.log(this.state.selectedEvent)
+
     return (
       <>
         <Container>
           <CardColumns>
-            {this.props.events.length > 0 &&
+            {this.props.events &&
               this.props.events.map((event) =>
                 <Card key={event.id} style={{ width: '18rem' }} >
                   <Card.Img src={event.image} />
@@ -43,7 +44,7 @@ class Events extends React.Component {
               )}
           </CardColumns>
         </Container>
-        {/* <Profile /> */}
+
 
       </>
     )
