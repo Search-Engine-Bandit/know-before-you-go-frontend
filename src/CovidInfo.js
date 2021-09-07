@@ -1,39 +1,32 @@
 import React from 'react';
 import axios from 'axios'
+import './CovidInfo.css';
 import { Container, Card } from 'react-bootstrap';
 
 class CovidInfo extends React.Component {
-  constructor (props) {
-    super(props);
-      this.state = {
-        covidData: []
-      }
-  }
-
-  getCovidInfo = async () => {
-    let covid = await axios.get(`https://api.covidtracking.com/v1/states/ca/current.json`);
-    this.setState({
-      covidData: covid.data
-    })
-  }
 
   render() {
 
+  console.log("Covid Data Props", this.props.covidData);
+
     return (
       <>
-        <Container>
-            {this.state.covidData.length > 0 &&
-              this.state.covidData.map(info =>
-                <Card key={info.id} style={{ width: '18rem' }} >
+        <Container class="CovidCard">
+                <Card style={{ width: '30rem' }} >
                   <Card.Img src="https://wisconsindot.gov/PublishingImages/covid19.png"/>
                   <Card.Body>
-                    <Card.Title>Covid Statistics for your State</Card.Title>
-                    <Card.Text>{info.positive}</Card.Text>
-                    <Card.Text>{info.hospitalizedCurrently}</Card.Text>
-                    <Card.Text>{info.death}</Card.Text>
+                    <Card.Title>Covid Statistics in {this.props.covidData.state}</Card.Title>
+                    <hr></hr>
+                    {/* <Card.Img src=".src/img/CovidTest.jpg" alt =""/> */}
+                    <Card.Text>
+                      <img src=".src/img/CovidTest.jpg" alt =""/>
+                      Positive Cases: {this.props.covidData.postiveCases}</Card.Text>
+                    <Card.Text>
+                      Hospitilized Currently: {this.props.covidData.hospitalizedCurrently}</Card.Text>
+                    <Card.Text>
+                      Deaths: {this.props.covidData.deaths}</Card.Text>
                   </Card.Body>
                 </Card>
-              )}
         </Container>
       </>
     )
