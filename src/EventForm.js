@@ -3,11 +3,12 @@ import axios from 'axios'
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
-import Events from './Events';
+import './EventForm.css';
+import Col from 'react-bootstrap/Col'
 
 
 class EventForm extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       events: [],
@@ -68,12 +69,12 @@ class EventForm extends React.Component {
       console.log(err)
     }
   }
-  
+
 
   render() {
     return (
       <>
-        <Container>
+        <Container id='form'>
 
           <Form onSubmit={this.handlesubmit}>
             <Form.Label>
@@ -82,17 +83,23 @@ class EventForm extends React.Component {
 
             <Form.Group controlId="city" onChange={this.handleCity}>
               <Form.Label>City</Form.Label>
-              <Form.Control type="text" />
+              {/* <Col xs={7}> */}
+                <Form.Control class='form-input' type="text" />
+              {/* </Col> */}
             </Form.Group>
 
             <Form.Group controlId="startdate" onChange={this.handleStartDate}>
               <Form.Label>Start Date</Form.Label>
-              <Form.Control type="text" />
+              <Col xs={7}>
+                <Form.Control class='form-input' type="text" />
+              </Col>
             </Form.Group>
 
             <Form.Group controlId="state" onChange={this.handleState}>
               <Form.Label>state</Form.Label>
-              <Form.Control type="text" />
+              <Col xs={7}>
+                <Form.Control class='form-input' type="text" />
+              </Col>
             </Form.Group>
 
             <Form.Group id="formGridCheckbox" onChange={this.handleActivity}>
