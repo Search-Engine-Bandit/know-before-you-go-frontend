@@ -5,6 +5,9 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import './EventForm.css';
 import Col from 'react-bootstrap/Col'
+import Events from './Events';
+import CovidInfo from './CovidInfo.js';
+
 
 
 class EventForm extends React.Component {
@@ -19,10 +22,24 @@ class EventForm extends React.Component {
       sports: '',
       theater: '',
       activity: '',
-      event: {}
-
+      event: {},
+      covidData: {}
     }
   }
+
+  getCovidInfo = async () => {
+    // let covid = await axios.get(`http://localhost:3001/covid?state=${this.state.state}`);
+    let config = { 
+      params: { state: this.state.state }
+    };
+
+    let covid = await axios.get(`http://localhost:3001/covid`, config);
+    this.setState({
+      covidData: covid.data
+    })
+    console.log(this.state.covidData);
+  }
+
   handleCity = (e) => {
     e.preventDefault()
     this.setState({ city: e.target.value })
@@ -46,9 +63,10 @@ class EventForm extends React.Component {
   handlesubmit = (e) => {
     e.preventDefault();
 
-
+    this.getCovidInfo();
     this.getEvent();
   }
+
   getEvent = async () => {
     let events = await axios.get(`http://localhost:3001/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
     this.setState({
@@ -112,6 +130,11 @@ class EventForm extends React.Component {
             <Button type="submit">
               Search Events
             </Button>
+
+            <CovidInfo covidData={this.state.covidData} />
+
+            <Events events={this.state.events} handleCreateEvent={this.handleCreateEvent} />
+
           </Form>
         </Container>
 
