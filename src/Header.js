@@ -11,8 +11,7 @@ import Logout from './Logout';
 class Header extends React.Component {
   render() {
     return (
-        <Navbar id='nav-bar' collapseOnSelect  fixed="top" expand="lg" bg="primary" variant="dark">
-
+      <Navbar id='nav-bar' collapseOnSelect fixed="top" expand="lg" bg="primary" variant="dark">
           <Navbar.Brand class='links'>Know Before You Go</Navbar.Brand>
           <Link class='links' to="/">Home</Link>
           <Link class='links' to="/about-us">About Us</Link>

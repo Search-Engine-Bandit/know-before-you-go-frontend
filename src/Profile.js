@@ -40,20 +40,25 @@ class Profile extends React.Component {
     }
   }
   handleUpdateEvent = async (event) => {
+    console.log("saved event id", event._id)
     try {
-      await axios.put(`http://localhost:3001/dbevents/${event.id}`, event);
+
+      const saved = await axios.put(`http://localhost:3001/dbevents/${event._id}`, event);
+      console.log("new", saved.data)
 
       const updateEvents = this.state.events.map((stateEvents) => {
-        console.log(stateEvents)
-        if (stateEvents._id === event.id) {
-          console.log(event)
-          return event;
+        console.log("state Event", stateEvents)
+        console.log("saved data", saved.data)
+        console.log("saved event", event)
+        if (stateEvents._id === saved.data._id) {
+          console.log(saved.data)
+          return saved.data;
         } else {
           return stateEvents
         }
       })
       this.setState({ events: updateEvents })
-      console.log(updateEvents)
+      console.log("updated events", updateEvents)
     } catch (err) {
       console.log(err)
     }

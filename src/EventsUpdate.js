@@ -6,8 +6,8 @@ class EventsUpdate extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedEvent: this.props.selectedEvent,
-      id: this.props.selectedEvent._id,
+      ...this.props.selectedEvent,
+      _id: this.props.selectedEvent._id,
       prospect: '',
       mood: '',
       going: ''
@@ -18,12 +18,15 @@ class EventsUpdate extends React.Component {
     e.preventDefault()
     // this.props.selectedEvent.going = e.target.value
     this.setState({ going: e.target.value })
+
     //   let selectedEvent = { ...this.state.selectedEvent }
     //   selectedEvent.going = e.target.value
     //   this.setState({
     //     selectedEvent
     //   })
+    // console.log(this.state)
   }
+
 
   handleMood = (e) => {
     e.preventDefault()
@@ -39,6 +42,7 @@ class EventsUpdate extends React.Component {
     this.props.handleClose();
   }
   render() {
+    console.log("event up", this.state)
     return (
       <>
 
