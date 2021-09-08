@@ -23,7 +23,6 @@ class Header extends React.Component {
               <Logout id='login-logout'class='links'/>
             </>
             : <Login id='login-logout' class='links'/>}
-
         </Navbar>
 
 
