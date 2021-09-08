@@ -20,6 +20,7 @@
 
 * [React-Bootstrap](https://react-bootstrap-v4.netlify.app)
 * [Auth0 docs](https://auth0.com/docs/quickstarts)
+* [TicketMaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
 
 ## Summary of idea
 
