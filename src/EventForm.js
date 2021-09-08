@@ -13,7 +13,7 @@ import CovidInfo from './CovidInfo.js';
 
 
 class EventForm extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       events: [],
@@ -32,7 +32,7 @@ class EventForm extends React.Component {
 
   getCovidInfo = async () => {
     // let covid = await axios.get(`http://localhost:3001/covid?state=${this.state.state}`);
-    let config = { 
+    let config = {
       params: { state: this.state.state }
     };
 
@@ -124,17 +124,17 @@ class EventForm extends React.Component {
             <Form.Group controlId="city" onChange={this.handleCity}>
               <Form.Label>City</Form.Label>
               {/* <Col xs={7}> */}
-                <Form.Control class='form-input' type="text" />
+              <Form.Control className='form-input' type="text" />
               {/* </Col> */}
             </Form.Group>
 
             <Form.Group controlId="startdate" onChange={this.handleStartDate}>
               <Form.Label>Start Date</Form.Label>
 
-//               <Form.Control type="text" placeholder="yyyy-mm-dd" />
+              <Form.Control type="text" placeholder="yyyy-mm-dd" />
 
               <Col xs={7}>
-                <Form.Control class='form-input' type="text" placeholder="yyyy-mm-dd" />
+                <Form.Control className='form-input' type="text" placeholder="yyyy-mm-dd" />
               </Col>
 
             </Form.Group>
@@ -142,7 +142,7 @@ class EventForm extends React.Component {
             <Form.Group controlId="state" onChange={this.handleState}>
               <Form.Label>state</Form.Label>
               <Col xs={7}>
-                <Form.Control class='form-input' type="text" />
+                <Form.Control className='form-input' type="text" />
               </Col>
             </Form.Group>
 
