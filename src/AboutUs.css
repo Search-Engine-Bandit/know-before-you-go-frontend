@@ -1,0 +1,30 @@
+.names {
+  margin-right: 525px;
+}
+
+#title {
+  padding-top: 100px;
+}
+
+#allbios {
+  text-align: center;
+  margin: auto;
+}
+
+.bio {
+  font-size: 20px;
+}
+
+#taylor {
+  background-image: url("./img/taylorbg.jpg");
+  color: bisque;
+  padding-top: 300px;
+  padding-right: 700px;
+  padding-bottom: 350px;
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.bio-taylor{
+  font-size: 30px;
+}

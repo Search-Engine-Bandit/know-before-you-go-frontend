@@ -12,16 +12,6 @@ class Events extends React.Component {
 
     }
   }
-  // handleSelectedEvent = (selectedEvent) => {
-  //   console.log(selectedEvent)
-  //   this.setState({
-  //     selectedEvent: selectedEvent,
-  //     itemSaved: true
-  //   })
-  //   console.log(this.state)
-  //   this.props.handleCreateEvent(selectedEvent)
-  // }
-
 
   render() {
     console.log(this.props)
