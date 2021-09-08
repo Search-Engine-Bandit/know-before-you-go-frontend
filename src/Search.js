@@ -24,7 +24,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container id='eventform'>
         <EventForm handleEvents={this.renderEvents} />
 
         <Tabs defaultActiveKey="Events" >

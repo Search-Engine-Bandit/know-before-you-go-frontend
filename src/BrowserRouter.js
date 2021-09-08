@@ -12,9 +12,9 @@ import Header from './Header';
 
 import Profile from './Profile.js';
 import Landing from './Landing.js'
-// import EventForm from './EventForm.js'
 import Footer from './Footer.js'
-import Search from './Search';
+import Search from './Search.js';
+import AboutUs from './AboutUs.js'
 
 
 
@@ -25,11 +25,10 @@ class BrowserRouter extends React.Component {
     return (
       <>
         <Router>
-
             <Header />
             <Switch>
               <Route exact path="/">
-                {this.props.auth0.isAuthenticated ? <Landing /> : ''}
+                <Landing />
               </Route>
               <Route exact path="/profile">
                 {this.props.auth0.isAuthenticated ? <Profile /> : ''}
@@ -37,8 +36,11 @@ class BrowserRouter extends React.Component {
               <Route exact path="/search">
               {this.props.auth0.isAuthenticated ? <Search /> : ''}
               </Route>
+              <Route exact path="/about-us">
+              <AboutUs />
+              </Route>
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
         </Router>
       </>
     )

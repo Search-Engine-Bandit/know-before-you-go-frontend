@@ -11,7 +11,7 @@ import Logout from './Logout';
 class Header extends React.Component {
   render() {
     return (
-        <Navbar id='nav-bar' collapseOnSelect expand="lg" bg="primary" variant="dark">
+        <Navbar id='nav-bar' collapseOnSelect  fixed="top" expand="lg" bg="primary" variant="dark">
 
           <Navbar.Brand>Know Before You Go</Navbar.Brand>
           <Link class='links' to="/">Home</Link>
@@ -19,10 +19,10 @@ class Header extends React.Component {
           {this.props.auth0.isAuthenticated ?
             <>
               <Link class='links' to="/profile">My Profile</Link>
-              <Logout />
+              <Link class='links' to="/search">Search</Link>
+              <Logout id='login-logout'class='links'/>
             </>
-            : <Login class='login-logout'/>}
-
+            : <Login id='login-logout' class='links'/>}
         </Navbar>
 
 

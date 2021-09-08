@@ -3,6 +3,11 @@
   margin: 20px;
 }
 
-.login-logout {
+#nav-bar{
+  font-size: 25px;
   float: right;
+}
+
+#login-logout {
+  color: cyan;
 }
