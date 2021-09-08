@@ -4,6 +4,7 @@ import React from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { CardColumns, Card, Container, Button, Modal } from 'react-bootstrap';
 import EventsUpdate from './EventsUpdate';
+import './Profile.css'
 
 
 
@@ -45,13 +46,14 @@ class Profile extends React.Component {
       const updateEvents = this.state.events.map((stateEvents) => {
         console.log(stateEvents)
         if (stateEvents._id === event.id) {
+          console.log(event)
           return event;
         } else {
           return stateEvents
         }
       })
       this.setState({ events: updateEvents })
-      console.log(this.state.events)
+      console.log(updateEvents)
     } catch (err) {
       console.log(err)
     }
@@ -78,17 +80,21 @@ class Profile extends React.Component {
                   <Card.Img src={event.image} />
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
-                    <Card.Text>{event.localDate}</Card.Text>
-                    <Card.Text>{event.localTime}</Card.Text>
-                    <Card.Text>{event.city}</Card.Text>
-                    <Card.Text>{event.state}</Card.Text>
-                    {event.prospect ? <Card.Text>{event.prospect}</Card.Text> : ''}
-                    {event.mood ? <Card.Text>{event.mood}</Card.Text> : ''}
-                    {/* <Card.Text>{event.priceRange[0] }</Card.Text> */}
-                  </Card.Body>
-                  <Button variant="info" onClick={() => this.handleShow(event)}> Update Event</Button>
+                    <Card.Text>Date: {event.localDate}</Card.Text>
+                    <Card.Text>Time: {event.localTime}</Card.Text>
+                    <Card.Text>City: {event.city}</Card.Text>
+                    <Card.Text>State: {event.state}</Card.Text>
 
-                  <Button variant="danger" onClick={() => this.handleDeleteEvent(event._id)}>Delete Event</Button>
+                    {event.going ? <Card.Text>Going ? :{event.going}</Card.Text> : ''}
+                    {event.prospect ? <Card.Text>Prospect? :{event.prospect}</Card.Text> : ''}
+                    {event.mood ? <Card.Text> Mood: {event.mood}</Card.Text> : ''}
+                    {/* <Card.Text>{event.priceRange[0] }</Card.Text> */}
+                    <Card.Link href={event.ticket}>Buy Ticket </Card.Link>
+
+                  </Card.Body>
+                  <Button className="update" variant="info" onClick={() => this.handleShow(event)}> Update Event</Button>
+
+                  <Button className="delete" variant="danger" onClick={() => this.handleDeleteEvent(event._id)}>Delete Event</Button>
 
                 </Card>
               )}

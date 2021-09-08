@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Card, Button, CardColumns } from 'react-bootstrap';
+import { Container, CardColumns } from 'react-bootstrap';
+import Event from './Event'
 
 
 class Events extends React.Component {
@@ -7,40 +8,31 @@ class Events extends React.Component {
     super(props);
     this.state = {
       selectedEvent: {},
+      itemSaved: false
 
     }
   }
-  handleSelectedEvent = (selectedEvent) => {
-    this.setState({
-      selectedEvent
-    })
-    this.props.handleCreateEvent(selectedEvent)
-  }
+  // handleSelectedEvent = (selectedEvent) => {
+  //   console.log(selectedEvent)
+  //   this.setState({
+  //     selectedEvent: selectedEvent,
+  //     itemSaved: true
+  //   })
+  //   console.log(this.state)
+  //   this.props.handleCreateEvent(selectedEvent)
+  // }
 
 
   render() {
+    console.log(this.props)
 
     return (
       <>
         <Container>
           <CardColumns>
             {this.props.events &&
-              this.props.events.map((event) =>
-                <Card key={event.id} style={{ width: '18rem' }} >
-                  <Card.Img src={event.image} />
-                  <Card.Body>
-                    <Card.Title>{event.name}</Card.Title>
-                    <Card.Text>{event.localDate}</Card.Text>
-                    <Card.Text>{event.localTime}</Card.Text>
-                    <Card.Text>{event.city}</Card.Text>
-                    <Card.Text>{event.state}</Card.Text>
-                    {/* <Card.Text>{event.priceRange[0] }</Card.Text> */}
-                  </Card.Body>
-                  <Button onClick={() => this.handleSelectedEvent(event)}>
-                    Save Event
-                  </Button>
-
-                </Card>
+              this.props.events.map((event, index) =>
+                <Event key={index} event={event} handleCreateEvent={this.props.handleCreateEvent} />
               )}
           </CardColumns>
         </Container>
