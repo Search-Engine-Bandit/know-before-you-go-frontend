@@ -85,18 +85,6 @@ class EventForm extends React.Component {
   }
 
 
-  // handleCrEvent = async (eventInfo) => {
-  //   try {
-  //     let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
-  //     const newEvent = result.data;
-  //     this.setState({
-  //       event: [...this.state.event, newEvent],
-  //     })
-  //   } catch (err) {
-  //     console.log(err)
-  //   }
-  // }
-
   handleCreateEvent = async (eventInfo) => {
     try {
       let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
@@ -123,15 +111,14 @@ class EventForm extends React.Component {
 
             <Form.Group controlId="city" onChange={this.handleCity}>
               <Form.Label>City</Form.Label>
-              {/* <Col xs={7}> */}
-              <Form.Control className='form-input' type="text" />
-              {/* </Col> */}
+              <Col xs={7}>
+                <Form.Control class='form-input' type="text" />
+              </Col>
+
             </Form.Group>
 
             <Form.Group controlId="startdate" onChange={this.handleStartDate}>
               <Form.Label>Start Date</Form.Label>
-
-              <Form.Control type="text" placeholder="yyyy-mm-dd" />
 
               <Col xs={7}>
                 <Form.Control className='form-input' type="text" placeholder="yyyy-mm-dd" />
@@ -159,11 +146,10 @@ class EventForm extends React.Component {
 
             <CovidInfo covidData={this.state.covidData} />
 
-            <Events events={this.state.events} handleCreateEvent={this.handleCreateEvent} />
+          
 
           </Form>
         </Container>
-        {/* <Events handleCrEvent={this.handleCrEvent} /> */}
 
 
 

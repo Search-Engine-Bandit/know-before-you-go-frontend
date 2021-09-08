@@ -13,7 +13,8 @@ class Landing extends React.Component {
         <Container id='banner-container'>
           <Image id='banner' src={Banner} alt="banner of friends hugging" fluid />
         </Container>
-          <h3 id='bio'>Know Before you Go is committed to providing a safer dating experience. We provide the tools to find that special someone and plan a date that you both love and enjoy. </h3>
+          <h3 id='bio'>Know Before you Go is committed to providing a safer dating experience. <br/>
+          We provide the tools to find that special someone and plan a date that you both love and enjoy. </h3>
       </>
     )
   }
