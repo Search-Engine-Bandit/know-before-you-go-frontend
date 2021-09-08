@@ -13,7 +13,7 @@ class Header extends React.Component {
     return (
         <Navbar id='nav-bar' collapseOnSelect  fixed="top" expand="lg" bg="primary" variant="dark">
 
-          <Navbar.Brand>Know Before You Go</Navbar.Brand>
+          <Navbar.Brand class='links'>Know Before You Go</Navbar.Brand>
           <Link class='links' to="/">Home</Link>
           <Link class='links' to="/about-us">About Us</Link>
           {this.props.auth0.isAuthenticated ?

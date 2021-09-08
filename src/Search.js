@@ -3,7 +3,8 @@ import EventForm from './EventForm';
 import Tabs from 'react-bootstrap/Tabs'
 import Tab from 'react-bootstrap/Tab'
 import Events from './Events.js'
-import { Container, } from 'react-bootstrap';
+import CovidInfo from './CovidInfo.js'
+import Container from 'react-bootstrap/Container';
 import './Search.css'
 import axios from 'axios';
 
@@ -14,7 +15,7 @@ class Search extends React.Component {
     this.state = {
       events: [],
       selectedEvent: {},
-
+      covid: {},
 
     }
   }
@@ -36,6 +37,12 @@ class Search extends React.Component {
     })
   }
 
+  renderCovid = (newCovidData) => {
+    this.setState({
+      covid: newCovidData
+    })
+  }
+
   render() {
     return (
       <Container id='eventform'>
@@ -46,10 +53,7 @@ class Search extends React.Component {
             <Events events={this.state.events} handleCreateEvent={this.handleCreateEvent} />
           </Tab>
           <Tab class='tabs' eventKey="Covid Data" title="Covid Data">
-            <h1>hello from covid data</h1>
-          </Tab>
-          <Tab class='tabs' eventKey="contact" title="Contact">
-            <h1>hello from page 3</h1>
+          <CovidInfo covidData={this.state.covid} handleCovid={this.renderCovid} />
           </Tab>
         </Tabs>
       </ Container>
