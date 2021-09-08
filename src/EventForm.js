@@ -3,10 +3,12 @@ import axios from 'axios'
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+
 import './EventForm.css';
 import Col from 'react-bootstrap/Col'
 import Events from './Events';
 import CovidInfo from './CovidInfo.js';
+
 
 
 
@@ -22,6 +24,7 @@ class EventForm extends React.Component {
       sports: '',
       theater: '',
       activity: '',
+
       event: {},
       covidData: {}
     }
@@ -46,7 +49,12 @@ class EventForm extends React.Component {
   }
   handleStartDate = (e) => {
     e.preventDefault()
+    //startDate = e.target.value;
+    //const requiredDateFormat = /^.[a-zA-Z0-9]{1,8}$/;
+    //if (requiredNameLength.test(userName))
+
     this.setState({ startDate: e.target.value })
+
   }
 
   handleState = (e) => {
@@ -76,6 +84,19 @@ class EventForm extends React.Component {
     this.props.handleEvents(events.data);
   }
 
+
+  // handleCrEvent = async (eventInfo) => {
+  //   try {
+  //     let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
+  //     const newEvent = result.data;
+  //     this.setState({
+  //       event: [...this.state.event, newEvent],
+  //     })
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
+
   handleCreateEvent = async (eventInfo) => {
     try {
       let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
@@ -87,6 +108,7 @@ class EventForm extends React.Component {
       console.log(err)
     }
   }
+
 
 
   render() {
@@ -108,9 +130,13 @@ class EventForm extends React.Component {
 
             <Form.Group controlId="startdate" onChange={this.handleStartDate}>
               <Form.Label>Start Date</Form.Label>
+
+//               <Form.Control type="text" placeholder="yyyy-mm-dd" />
+
               <Col xs={7}>
-                <Form.Control class='form-input' type="text" />
+                <Form.Control class='form-input' type="text" placeholder="yyyy-mm-dd" />
               </Col>
+
             </Form.Group>
 
             <Form.Group controlId="state" onChange={this.handleState}>
@@ -123,7 +149,7 @@ class EventForm extends React.Component {
             <Form.Group id="formGridCheckbox" onChange={this.handleActivity}>
               <Form.Check type="checkbox" label="Music" value="music" />
               <Form.Check type="checkbox" label="Sports" value="sports" />
-              <Form.Check type="checkbox" label="Art/Theater" value="arts-theater" />
+              <Form.Check type="checkbox" label="Art/Theater" value="arts" />
 
             </Form.Group>
 
@@ -137,6 +163,9 @@ class EventForm extends React.Component {
 
           </Form>
         </Container>
+        {/* <Events handleCrEvent={this.handleCrEvent} /> */}
+
+
 
       </>
     )
