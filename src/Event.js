@@ -25,7 +25,7 @@ class Event extends React.Component {
 
     return (
 
-      <Card style={{ width: '18rem' }} >
+      <Card style={{ height: '35rem' }} >
         <Card.Img src={this.props.event.image} />
         <Card.Body>
           <Card.Title>{this.props.event.name}</Card.Title>

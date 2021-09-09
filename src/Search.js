@@ -7,6 +7,7 @@ import CovidInfo from './CovidInfo.js'
 import Container from 'react-bootstrap/Container';
 import './Search.css'
 import axios from 'axios';
+const API_SERVER = process.env.REACT_APP_API;
 
 
 class Search extends React.Component {
@@ -21,7 +22,7 @@ class Search extends React.Component {
   }
   handleCreateEvent = async (eventInfo) => {
     try {
-      let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
+      let result = await axios.post(`${API_SERVER}/dbevents`, eventInfo);
       const newEvent = result.data;
       this.setState({
         selectedEvent: newEvent,
@@ -49,11 +50,11 @@ class Search extends React.Component {
         <EventForm handleEvents={this.renderEvents} />
 
         <Tabs defaultActiveKey="Events" >
-          <Tab class='tabs' eventKey="Events" title="Events">
+          <Tab className='tabs' eventKey="Events" title="Events">
             <Events events={this.state.events} handleCreateEvent={this.handleCreateEvent} />
           </Tab>
-          <Tab class='tabs' eventKey="Covid Data" title="Covid Data">
-          <CovidInfo covidData={this.state.covid} handleCovid={this.renderCovid} />
+          <Tab className='tabs' eventKey="Covid Data" title="Covid Data">
+            <CovidInfo covidData={this.state.covid} handleCovid={this.renderCovid} />
           </Tab>
         </Tabs>
       </ Container>
