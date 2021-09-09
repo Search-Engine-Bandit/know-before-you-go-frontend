@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import BrowserRouter from './BrowserRouter.js';
+import ParticlesBg from 'particles-bg'
 
 class App extends React.Component {
   constructor (props) {
@@ -21,7 +22,7 @@ class App extends React.Component {
         <Router>
           <BrowserRouter/>
         </Router>
-
+        <ParticlesBg type="circle" bg={true} />
       </div>
     );
   }
