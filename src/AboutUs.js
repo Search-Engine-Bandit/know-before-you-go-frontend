@@ -22,9 +22,11 @@ class AboutUs extends React.Component {
             <Accordion.Collapse eventKey="0">
               <Card.Body>
                 <img className='bio-pic' src={Don} width='500' height='500' alt="Don Bandy" />
-                <p>This is a short bio about me. </p>
+                <p>My name is Don Bandy and I live in San Diego, CA.   <br />
+                I spent 4 years in the military as an infantryman, but have recently been working as a software development project manager.<br />   
+                In joining code fellows I was hoping to build a closer relationship with the apps our team develops. </p>
                 <p className="bio-david"><a href="https://github.com/dbjranger">https://github.com/dbjranger</a></p>
-                <p className="bio-david"><a href="https://www.linkedin.com/in/taylorwhite21">https://www.linkedin.com/in/david-waiganjo-8185aa80/</a></p>
+                <p className="bio-david"><a href="https://www.linkedin.com/in/don-bandy-jr-7a91a544/">https://www.linkedin.com/in/don-bandy-jr-7a91a544/</a></p>
               
               </Card.Body>
             </Accordion.Collapse>
