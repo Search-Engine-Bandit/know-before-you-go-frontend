@@ -10,7 +10,7 @@ import Events from './Events';
 import CovidInfo from './CovidInfo.js';
 
 
-
+const API_SERVER = process.env.REACT_APP_API;
 
 class EventForm extends React.Component {
   constructor (props) {
@@ -24,7 +24,6 @@ class EventForm extends React.Component {
       sports: '',
       theater: '',
       activity: '',
-
       event: {},
       covidData: {}
     }
@@ -36,7 +35,7 @@ class EventForm extends React.Component {
       params: { state: this.state.state }
     };
 
-    let covid = await axios.get(`http://localhost:3001/covid`, config);
+    let covid = await axios.get(`${API_SERVER}/covid`, config);
     this.setState({
       covidData: covid.data
     })
@@ -76,7 +75,7 @@ class EventForm extends React.Component {
   }
 
   getEvent = async () => {
-    let events = await axios.get(`http://localhost:3001/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
+    let events = await axios.get(`${API_SERVER}/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
     this.setState({
       events: events.data
     })
@@ -87,7 +86,7 @@ class EventForm extends React.Component {
 
   handleCreateEvent = async (eventInfo) => {
     try {
-      let result = await axios.post('http://localhost:3001/dbevents', eventInfo);
+      let result = await axios.post(`${API_SERVER}/dbevents`, eventInfo);
       const newEvent = result.data;
       this.setState({
         event: [...this.state.event, newEvent],
@@ -102,54 +101,55 @@ class EventForm extends React.Component {
   render() {
     return (
       <>
-        <Container id='form'>
 
-          <Form onSubmit={this.handlesubmit}>
-            <Form.Label>
-              <h3>Search Events</h3>
-            </Form.Label>
 
-            <Form.Group controlId="city" onChange={this.handleCity}>
-              <Form.Label>City</Form.Label>
-              <Col xs={7}>
-                <Form.Control class='form-input' type="text" />
-              </Col>
+        <Form onSubmit={this.handlesubmit} className="form">
+          <Form.Label>
+            <h3>Search Events</h3>
+          </Form.Label>
 
-            </Form.Group>
+          <Form.Group controlId="city" onChange={this.handleCity}>
+            <Form.Label>City</Form.Label>
+            <Col xs={7}>
+              <Form.Control className='form-input' type="text" />
+            </Col>
 
-            <Form.Group controlId="startdate" onChange={this.handleStartDate}>
-              <Form.Label>Start Date</Form.Label>
+          </Form.Group>
 
-              <Col xs={7}>
-                <Form.Control className='form-input' type="text" placeholder="yyyy-mm-dd" />
-              </Col>
+          <Form.Group controlId="state" onChange={this.handleState}>
+            <Form.Label>state</Form.Label>
+            <Col xs={7}>
+              <Form.Control className='form-input' type="text" />
+            </Col>
+          </Form.Group>
 
-            </Form.Group>
+          <Form.Group controlId="startdate" onChange={this.handleStartDate}>
+            <Form.Label>Start Date</Form.Label>
 
-            <Form.Group controlId="state" onChange={this.handleState}>
-              <Form.Label>state</Form.Label>
-              <Col xs={7}>
-                <Form.Control className='form-input' type="text" />
-              </Col>
-            </Form.Group>
+            <Col xs={7}>
+              <Form.Control className='form-input' type="text" placeholder="yyyy-mm-dd" />
+            </Col>
 
-            <Form.Group id="formGridCheckbox" onChange={this.handleActivity}>
-              <Form.Check type="checkbox" label="Music" value="music" />
-              <Form.Check type="checkbox" label="Sports" value="sports" />
-              <Form.Check type="checkbox" label="Art/Theater" value="arts" />
+          </Form.Group>
 
-            </Form.Group>
+          <Form.Group id="formGridCheckbox" onChange={this.handleActivity}>
+            <Form.Check type="checkbox" label="Sports" value="sports" className="checkbox" />
+            <Form.Check type="checkbox" label="Music" value="music" className="checkbox" />
+            <Form.Check type="checkbox" label=" Arts" value="arts" className="checkbox" />
 
-            <Button type="submit">
-              Search Events
-            </Button>
 
-            <CovidInfo covidData={this.state.covidData} />
 
-          
+          </Form.Group>
 
-          </Form>
-        </Container>
+          <Button type="submit" className="submit">
+            Search Events
+          </Button>
+
+          <CovidInfo covidData={this.state.covidData} />
+
+
+
+        </Form>
 
 
 

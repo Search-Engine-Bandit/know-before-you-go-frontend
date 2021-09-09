@@ -1,13 +1,18 @@
 .delete{
   margin-left: 40px;
+  margin-bottom: 30px;
 
 }
 .update{
   margin-left: 5px;
+  margin-bottom: 30px;
 }
-h1{
+.saved{
   margin-left: 500px;
-  margin-bottom: 40px;
   color:rgb(11, 11, 243);
 
+}
+.cards{
+  margin-top: 100px;
+  margin-bottom: 100px;
 }

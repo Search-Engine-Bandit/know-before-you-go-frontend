@@ -4,9 +4,9 @@ import React from 'react';
 import { withAuth0 } from '@auth0/auth0-react';
 import { CardColumns, Card, Container, Button, Modal } from 'react-bootstrap';
 import EventsUpdate from './EventsUpdate';
-import './Profile.css'
+import './Profile.css';
 
-
+const API_SERVER = process.env.REACT_APP_API;
 
 class Profile extends React.Component {
   constructor (props) {
@@ -20,16 +20,15 @@ class Profile extends React.Component {
   }
 
   componentDidMount = async () => {
-    const savedItems = await axios.get('http://localhost:3001/dbevents');
+    const savedItems = await axios.get(`${API_SERVER}/dbevents`);
     this.setState({
       events: savedItems.data
     })
-    console.log(this.state.events, 'new')
   }
 
   handleDeleteEvent = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/dbevents/${id}`);
+      await axios.delete(`${API_SERVER}/dbevents/${id}`);
       let remainingEvents = this.state.events.filter(event => event._id !== id)
       this.setState({
         events: remainingEvents
@@ -40,25 +39,17 @@ class Profile extends React.Component {
     }
   }
   handleUpdateEvent = async (event) => {
-    console.log("saved event id", event._id)
     try {
 
-      const saved = await axios.put(`http://localhost:3001/dbevents/${event._id}`, event);
-      console.log("new", saved.data)
-
+      const saved = await axios.put(`${API_SERVER}/dbevents/${event._id}`, event);
       const updateEvents = this.state.events.map((stateEvents) => {
-        console.log("state Event", stateEvents)
-        console.log("saved data", saved.data)
-        console.log("saved event", event)
         if (stateEvents._id === saved.data._id) {
-          console.log(saved.data)
           return saved.data;
         } else {
           return stateEvents
         }
       })
       this.setState({ events: updateEvents })
-      console.log("updated events", updateEvents)
     } catch (err) {
       console.log(err)
     }
@@ -74,14 +65,16 @@ class Profile extends React.Component {
   }
 
   render() {
+
     return (
       <>
-        <h1>Saved Events</h1>
-        <Container>
-          <CardColumns>
+        <h1 classname="saved">Saved Events</h1>
+
+        <Container >
+          <CardColumns className="cards">
             {this.state.events.length > 0 &&
               this.state.events.map((event) =>
-                <Card key={event._id} style={{ width: '18rem' }} >
+                < Card key={event._id} style={{ height: '43rem' }}  >
                   <Card.Img src={event.image} />
                   <Card.Body>
                     <Card.Title>{event.name}</Card.Title>
@@ -93,13 +86,12 @@ class Profile extends React.Component {
                     {event.going ? <Card.Text>Going ? :{event.going}</Card.Text> : ''}
                     {event.prospect ? <Card.Text>Prospect? :{event.prospect}</Card.Text> : ''}
                     {event.mood ? <Card.Text> Mood: {event.mood}</Card.Text> : ''}
-                    {/* <Card.Text>{event.priceRange[0] }</Card.Text> */}
                     <Card.Link href={event.ticket}>Buy Ticket </Card.Link>
 
                   </Card.Body>
                   <Button className="update" variant="info" onClick={() => this.handleShow(event)}> Update Event</Button>
 
-                  <Button className="delete" variant="danger" onClick={() => this.handleDeleteEvent(event._id)}>Delete Event</Button>
+                  <Button className="delete" variant="danger" onClick={() => this.handleDeleteEvent(event._id)}> Delete Event </Button>
 
                 </Card>
               )}
