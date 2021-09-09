@@ -1,0 +1,22 @@
+
+.form-input{
+  margin-left: 250px;
+
+}
+
+.form {
+  
+  background-color:aqua;
+  color:blue;
+  width: auto;
+}
+
+h3 {
+  text-align: center;
+}
+
+.submit{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+

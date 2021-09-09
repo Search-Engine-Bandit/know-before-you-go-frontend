@@ -1,31 +1,43 @@
-# know-before-you-go-frontend
 
-## [Our Team Collaboration Plan](https://docs.google.com/document/d/1V7n9cizHly3ELPtDL3QGJtLV4XdCqgeUgpqlbctfsoY/edit)
+# Know Before You Go
 
-## Contributors:
+## Authors
 
-  David Waiganjo  
-  Don Bandy  
-  Taylor White
+* Don Bandy,  Software Engineer
+  * https://github.com/dbjranger
+* David Waiganjo , Software Engineer
+  * https://github.com/Daviey52
+* Taylor White, Software Engineer
+  * https://github.com/TaylorWhite21
 
-## Project Idea
+## Contributors
 
-  Get background information on a prospective date and also ensuring your date goes well. Check on available events for the desired day, check on available restaurants, etc.
+* Ryan Gallaway
+* JP Jones
+* Michael Eclave
 
-Database Schema
-Person schema
- Name {string, required}
-Age{Number,not required}
-City{string, Required, City , might be associated to City_Event}
-Gender{string,Not Required}
-Email{string,Not Required}
+## References
 
+* [React-Bootstrap](https://react-bootstrap-v4.netlify.app)
+* [Auth0 docs](https://auth0.com/docs/quickstarts)
+* [TicketMaster API](https://developer.ticketmaster.com/products-and-docs/apis/getting-started/)
 
-Event Schema
-Event name{string,not required}
-Event Date{number,Required}
-Event City{string,Required}
+## Summary of idea
 
-Relationships
-One person can go to one or more events
-One Event can have one or more people
+* Make it easier to plan dates with matches met on our site by being able to send the match a date and each user can review and change information on the date.  You can check on available events for the desired day, check on available restaurants, etc.
+
+* What problem or pain point does it solve?
+  1. Being able to plan a date that you know both partys will enjoy.  
+  2. Not being able to know if your date will like what you have planned.
+  3. Makes planning a date fun by doing it together.
+
+## Minimum Viable Product (MVP) definition
+
+What is the minimum required for you to present on your demo day? To display event information based on data input by the user
+
+## Project Prep Links
+
+* [Trello Board](https://trello.com/b/KVoETYXV/301-final-project-know-before-you-go)
+* [Wireframe](Site_layout.pdf)
+* [Domain Model](Domain_Model.png)
+* [Our Team Collaboration Plan](https://docs.google.com/document/d/1V7n9cizHly3ELPtDL3QGJtLV4XdCqgeUgpqlbctfsoY/edit)

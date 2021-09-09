@@ -1,30 +1,30 @@
-
-import axios from 'axios';
 import React from 'react';
 import './App.css';
+import { withAuth0 } from '@auth0/auth0-react';
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
+
+import BrowserRouter from './BrowserRouter.js';
 
 class App extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       events: [],
     }
   };
 
-
-  getEvent = async () => {
-    let events = await axios.get('http://localhost:3001/events');
-    this.setState({
-      events: events.data,
-    })
-    console.log(events);
-  }
-
-  render(){
+  render() {
     return (
-      <button onClick={this.getEvent}></button>
+      <div id='bg-color'>
+        <Router>
+          <BrowserRouter/>
+        </Router>
+
+      </div>
     );
   }
 }
 
-export default App;
+export default withAuth0(App);

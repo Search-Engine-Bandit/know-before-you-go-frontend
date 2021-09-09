@@ -1,0 +1,13 @@
+.links {
+  color: crimson;
+  margin: 20px;
+}
+
+#nav-bar{
+  font-size: 20px;
+  float: right;
+}
+
+#login-logout {
+  color: cyan;
+}
