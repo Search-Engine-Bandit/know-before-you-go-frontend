@@ -68,7 +68,7 @@ class Profile extends React.Component {
 
     return (
       <>
-        <h1 classname="saved">Saved Events</h1>
+        <h1 className="saved">Saved Events</h1>
 
         <Container >
           <CardColumns className="cards">
