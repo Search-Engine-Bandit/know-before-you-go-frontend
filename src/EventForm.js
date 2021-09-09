@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col'
 import CovidInfo from './CovidInfo.js';
 
 
-const API_SERVER = process.env.REACT_APP_API;
+// const http://localhost:3001 = process.env.REACT_APP_API;
 
 class EventForm extends React.Component {
   constructor (props) {
@@ -33,7 +33,7 @@ class EventForm extends React.Component {
       params: { state: this.state.state }
     };
 
-    let covid = await axios.get(`${API_SERVER}/covid`, config);
+    let covid = await axios.get(`http://localhost:3001/covid`, config);
     this.setState({
       covidData: covid.data
     })
@@ -73,7 +73,7 @@ class EventForm extends React.Component {
   }
 
   getEvent = async () => {
-    let events = await axios.get(`${API_SERVER}/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
+    let events = await axios.get(`http://localhost:3001/events?searchQuery=${this.state.city}&startDate=${this.state.startDate}&stateCode=${this.state.state}&classificationName=${this.state.activity}`);
     this.setState({
       events: events.data
     })
@@ -84,7 +84,7 @@ class EventForm extends React.Component {
 
   handleCreateEvent = async (eventInfo) => {
     try {
-      let result = await axios.post(`${API_SERVER}/dbevents`, eventInfo);
+      let result = await axios.post(`http://localhost:3001/dbevents`, eventInfo);
       const newEvent = result.data;
       this.setState({
         event: [...this.state.event, newEvent],
@@ -111,7 +111,6 @@ class EventForm extends React.Component {
             <Col xs={7}>
               <Form.Control className='form-input' type="text" />
             </Col>
-
           </Form.Group>
 
           <Form.Group controlId="state" onChange={this.handleState}>
@@ -123,30 +122,21 @@ class EventForm extends React.Component {
 
           <Form.Group controlId="startdate" onChange={this.handleStartDate}>
             <Form.Label>Start Date</Form.Label>
-
             <Col xs={7}>
               <Form.Control className='form-input' type="text" placeholder="yyyy-mm-dd" />
             </Col>
-
           </Form.Group>
 
           <Form.Group id="formGridCheckbox" onChange={this.handleActivity}>
             <Form.Check type="checkbox" label="Sports" value="sports" className="checkbox" />
             <Form.Check type="checkbox" label="Music" value="music" className="checkbox" />
             <Form.Check type="checkbox" label=" Arts" value="arts" className="checkbox" />
-
-
-
           </Form.Group>
 
           <Button type="submit" className="submit">
             Search Events
           </Button>
-
-          <CovidInfo covidData={this.state.covidData} />
-
-
-
+          {/* <CovidInfo covidData={this.state.covidData} /> */}
         </Form>
 
 

@@ -6,7 +6,7 @@ import { CardColumns, Card, Container, Button, Modal } from 'react-bootstrap';
 import EventsUpdate from './EventsUpdate';
 import './Profile.css';
 
-const API_SERVER = process.env.REACT_APP_API;
+// const process.env.REACT_APP_API = process.env.REACT_APP_API;
 
 class Profile extends React.Component {
   constructor (props) {
@@ -20,7 +20,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount = async () => {
-    const savedItems = await axios.get(`${API_SERVER}/dbevents`);
+    const savedItems = await axios.get(`http://localhost:3001/dbevents`);
     this.setState({
       events: savedItems.data
     })
@@ -28,7 +28,7 @@ class Profile extends React.Component {
 
   handleDeleteEvent = async (id) => {
     try {
-      await axios.delete(`${API_SERVER}/dbevents/${id}`);
+      await axios.delete(`http://localhost:3001/dbevents/${id}`);
       let remainingEvents = this.state.events.filter(event => event._id !== id)
       this.setState({
         events: remainingEvents
@@ -41,7 +41,7 @@ class Profile extends React.Component {
   handleUpdateEvent = async (event) => {
     try {
 
-      const saved = await axios.put(`${API_SERVER}/dbevents/${event._id}`, event);
+      const saved = await axios.put(`${process.env.REACT_APP_API}/dbevents/${event._id}`, event);
       const updateEvents = this.state.events.map((stateEvents) => {
         if (stateEvents._id === saved.data._id) {
           return saved.data;
