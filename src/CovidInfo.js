@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios'
+
 import './CovidInfo.css';
 import { Container, Card } from 'react-bootstrap';
 
