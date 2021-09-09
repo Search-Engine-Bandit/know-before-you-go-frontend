@@ -55,6 +55,13 @@ class Search extends React.Component {
           <Tab className='tabs' eventKey="Covid Data" title="Covid Data">
             <CovidInfo covidData={this.state.covid} handleCovid={this.renderCovid} />
           </Tab>
+          <Tab className='tabs' eventKey="Resturants" title="Resturants">
+          </Tab>
+          <Tab className='tabs' eventKey="Night Clubs" title="Night Clubs">
+          </Tab>
+          <Tab className='tabs' eventKey="Movies" title="Movies">
+          </Tab>
+
         </Tabs>
       </ Container>
     )
