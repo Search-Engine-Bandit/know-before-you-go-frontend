@@ -23,6 +23,9 @@ class AboutUs extends React.Component {
               <Card.Body>
                 <img className='bio-pic' src={Don} width='500' height='500' alt="Don Bandy" />
                 <p>This is a short bio about me. </p>
+                <p className="bio-david"><a href="https://github.com/dbjranger">https://github.com/dbjranger</a></p>
+                <p className="bio-david"><a href="https://www.linkedin.com/in/taylorwhite21">https://www.linkedin.com/in/david-waiganjo-8185aa80/</a></p>
+              
               </Card.Body>
             </Accordion.Collapse>
           </Card>
@@ -41,8 +44,8 @@ class AboutUs extends React.Component {
                 </p>
                 <p className="bio-david"> I am passionate about the creation of apps that aid in environmental conservation and mitigation </p>
                 <p className="bio-david">I love sports, whether it's playing watching or even playing related video games</p>
-                <p className="bio-david"><a href="https://github.com/TaylorWhite21">https://github.com/Daviey52</a></p>
-                <p className="bio-david"><a href="https://www.linkedin.com/in/taylorwhite21">https://www.linkedin.com/in/david-waiganjo-8185aa80/</a></p>
+                <p className="bio-david"><a href="https://github.com/Daviey52">https://github.com/Daviey52</a></p>
+                <p className="bio-david"><a href="https://www.linkedin.com/in/david-waiganjo-8185aa80">https://www.linkedin.com/in/david-waiganjo-8185aa80/</a></p>
               </Card.Body>
             </Accordion.Collapse>
           </Card>
