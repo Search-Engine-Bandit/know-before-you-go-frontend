@@ -13,7 +13,7 @@ ReactDOM.render(
     <Auth0Provider
       domain="dev-vb6a1x5t.us.auth0.com"
       clientId="CMgMJWkAdpZC0e3LeLigDCDbd2gFH3Us"
-      redirectUri={window.location.origin}>
+      redirectUri="https://elegant-stonebraker-ec7932.netlify.app/">
       <App />
     </Auth0Provider>
   </React.StrictMode>,
