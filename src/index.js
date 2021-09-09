@@ -11,8 +11,8 @@ ReactDOM.render(
   <React.StrictMode>
     {/* Wrap every component in auth0.*/}
     <Auth0Provider
-      domain="dev-1evsebhc.us.auth0.com"
-      clientId="WI9japH41FAZP9SOvBaHLOrb0QjkF824"
+      domain="dev-vb6a1x5t.us.auth0.com"
+      clientId="CMgMJWkAdpZC0e3LeLigDCDbd2gFH3Us"
       redirectUri={window.location.origin}>
       <App />
     </Auth0Provider>
