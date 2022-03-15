@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 import './EventForm.css';
 import Col from 'react-bootstrap/Col'
-import CovidInfo from './CovidInfo.js';
+// import CovidInfo from './CovidInfo.js';
 
 
 // const http://localhost:3001 = process.env.REACT_APP_API;
