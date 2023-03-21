@@ -94,8 +94,6 @@ class EventForm extends React.Component {
     }
   }
 
-
-
   render() {
     return (
       <>

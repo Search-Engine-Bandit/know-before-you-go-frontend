@@ -2,8 +2,13 @@ import React from 'react';
 
 import './CovidInfo.css';
 import { Container, Card } from 'react-bootstrap';
+import './EventForm'
 
 class CovidInfo extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {}
+  }
 
   render() {
 
@@ -13,7 +18,7 @@ class CovidInfo extends React.Component {
       <>
         <Container className="CovidCard">
           <Card style={{ width: '30rem' }} >
-            <Card.Img src="https://wisconsindot.gov/PublishingImages/covid19.png" />
+            {/* {<Card.Img src="https://wisconsindot.gov/PublishingImages/covid19.png" />} */}
             <Card.Body>
               <Card.Title>Covid Statistics in {this.props.covidData.state}</Card.Title>
               <hr></hr>

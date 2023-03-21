@@ -16,7 +16,7 @@ import Footer from './Footer.js'
 import Search from './Search.js';
 import AboutUs from './AboutUs.js'
 
-
+//change on 34
 
 class BrowserRouter extends React.Component {
 
@@ -25,22 +25,23 @@ class BrowserRouter extends React.Component {
     return (
       <>
         <Router>
-            <Header />
-            <Switch>
-              <Route exact path="/">
-                <Landing />
-              </Route>
-              <Route exact path="/profile">
-                {this.props.auth0.isAuthenticated ? <Profile /> : ''}
-              </Route>
-              <Route exact path="/search">
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Landing />
+            </Route>
+            <Route exact path="/profile">
+              {<Profile />}
+              {this.props.auth0.isAuthenticated ? <Profile /> : ''}
+            </Route>
+            <Route exact path="/search">
               {this.props.auth0.isAuthenticated ? <Search /> : ''}
-              </Route>
-              <Route exact path="/about-us">
+            </Route>
+            <Route exact path="/about-us">
               <AboutUs />
-              </Route>
-            </Switch>
-            <Footer />
+            </Route>
+          </Switch>
+          <Footer />
         </Router>
       </>
     )
